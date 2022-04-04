@@ -49,6 +49,13 @@ contract AtomWar {
             protonScore ++;
         }
     }
+    
+    // checks if the sender is a member of any gang, returns true if they are, false if they're not yet in a gang
+    function checkIfInGang() public view returns (bool) {
+        if (electrons[msg.sender] || neutrons[msg.sender] || protons[msg.sender]) {
+            return true;
+        } return false;
+    }
 
     // get the scores of each team
     function getScores() public view returns (uint256, uint256, uint256) {
